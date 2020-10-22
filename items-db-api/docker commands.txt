@@ -1,0 +1,17 @@
+# build image setting tag = latest and also setting SECRET
+docker build --build-arg CMDLINE_SECRET=items-db-api -t danielrnichols/items-db:latest .
+
+# run the local image
+docker run --name Items-db-dev --rm -d -p 4080:3000/tcp -v m:/docker-data:/data --env DB=/data/items.db --env TOKEN_EXPIRES_IN=60s danielrnichols/items-db:latest
+# create tag and push to DockerHub
+docker tag  danielrnichols/items-db:latest  danielrnichols/dev:items-db.1.0
+docker push danielrnichols/dev:items-db.1.0
+
+# pull from DockerHub
+docker pull dannicholsben/dev:items-db.1.0
+
+# run image downloaded from DockerHub
+docker run --name Items-db --rm -d -p 3080:3000/tcp -v m:/docker-data:/data --env DB=/data/items.db --env TOKEN_EXPIRES_IN=60s danielrnichols/dev:items-db.1.0
+
+#list docker images
+docker images
