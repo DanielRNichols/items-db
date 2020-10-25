@@ -33,7 +33,23 @@ export class ItemsApiService {
       catchError(this.handleError)
     );
   }
-  //
+
+  getItem = (id: number): Observable<IItem> => {
+    const url = `${this.apiUrl}items/${id}`;
+    console.log(url);
+
+    const options = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.localStorageService.getString('idb:token', '')}`
+      })
+    };
+
+    return this.http.get<IItem>(url, options).pipe(
+      tap(item => console.log(JSON.stringify(item))),
+      catchError(this.handleError)
+    );
+  }
+
 
   login = (userName: string, password: string): Observable<ILoginResult> => {
     const url = `${this.apiUrl}login`;

@@ -15,7 +15,9 @@
         <td>{{item.tag}}</td>
         <td>{{item.className}}</td>
         <td>{{item.description}}</td>
-        <td></td>
+        <td>
+          <a class='nav-link' [routerLink]="['/items', item.id]">Details</a>
+        </td>
       </tr>
     </tbody>
   </table>

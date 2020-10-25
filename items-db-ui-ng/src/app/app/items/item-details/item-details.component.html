@@ -1,3 +1,23 @@
-<div>
-  <h3>Item Details</h3>
+<div *ngIf='item' class='card-body'>
+  <div class='row'>
+    <div class='col-md-8'>
+      <div class='row'>
+        <div class='col-md-4'>Id:</div>
+        <div class='col-md-8'>{{item.id}}</div>
+      </div>
+      <div class='row'>
+        <div class='col-md-4'>Tag:</div>
+        <div class='col-md-8'>{{item.tag}}</div>
+      </div>
+      <div class='row'>
+        <div class='col-md-4'>Class:</div>
+        <div class='col-md-8'>{{item.className}}</div>
+      </div>
+      <div class='row'>
+        <div class='col-md-4'>Description:</div>
+        <div class='col-md-8'>{{item.description}}</div>
+      </div>
+    </div>
+  </div>
 </div>
+
