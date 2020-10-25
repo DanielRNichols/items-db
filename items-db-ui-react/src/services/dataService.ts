@@ -72,7 +72,7 @@ class DataService {
     try {
       const result = await axios.get(url, options);
       if(result.status === 200) {
-        localStorage.setItem(this._localStorageTokenKey, result.data.result);
+        localStorage.setItem(this._localStorageTokenKey, result.data.token);
         return true;
       } else {
         return new ApiError(result.status, `${result.statusText}:${result.data.message}`);
