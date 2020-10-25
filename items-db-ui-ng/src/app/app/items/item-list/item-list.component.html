@@ -1,3 +1,22 @@
 <div>
-  <h3>Items List Page</h3>
+  <table class="table table-striped" *ngIf='items && items.length'>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Tag</th>
+        <th>Class</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let item of items'>
+        <td>{{item.id}}</td>
+        <td>{{item.tag}}</td>
+        <td>{{item.className}}</td>
+        <td>{{item.description}}</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 </div>

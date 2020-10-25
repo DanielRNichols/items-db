@@ -1,0 +1,15 @@
+<form (ngSubmit)="login()">
+  <div className="form-group" >
+    <label>User Name:</label>
+    <input [(ngModel)]="userName" name="userName" className="form-control" type="text"
+    />
+  </div>
+  <div className="form-group">
+    <label>Password:</label>
+    <input [(ngModel)]="password" name="password" className="form-control" type="text"
+    />
+  </div>
+  <button type="submit" className="btn btn-primary">Login</button>
+  <button type="button" className="btn btn-primary">Cancel</button>
+</form>
+
